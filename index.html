@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>သဲသဲရေ ❤️</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}
+body{font-family:system-ui,"Noto Sans Myanmar","Myanmar Text",sans-serif;background:#130b18;color:white}
+#app{height:100%;position:relative;overflow:hidden;background:#160d1e}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.48);transition:background-image .6s}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(17,2,22,.82))}
+.wrap{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;padding:18px}
+.box{width:min(94vw,440px);text-align:center;padding:25px 18px;border-radius:30px;background:rgba(255,255,255,.11);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);box-shadow:0 20px 70px #0008}
+h1{font-size:28px;margin:0 0 10px}p{font-size:17px;line-height:1.8;margin:0 0 18px}
+.btns{display:flex;flex-direction:column;gap:14px;align-items:center;min-height:210px;justify-content:center}
+button{font-family:inherit;font-weight:800;color:white;border:0;border-radius:999px;padding:16px 20px;min-height:58px;cursor:pointer;transition:.45s cubic-bezier(.2,.9,.2,1);box-shadow:0 9px 30px #0007}
+.no{width:90%;background:#27242d;border:1px solid #777}
+.yes{width:58%;background:linear-gradient(135deg,#ff65a2,#ff176c);font-size:18px}
+.note{font-size:12px;opacity:.75}.count{font-size:12px;margin-top:6px;opacity:.65}
+.heart{position:absolute;z-index:5;pointer-events:none;animation:up 3.5s linear forwards}
+@keyframes up{0%{transform:translateY(0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translateY(-110vh) rotate(30deg) scale(1.4);opacity:0}}
+#final{display:none;position:absolute;z-index:10;inset:0;align-items:center;justify-content:center;background:rgba(255,30,110,.2);backdrop-filter:blur(3px)}
+#final.show{display:flex}
+.finalbox{width:90%;padding:36px 20px;border-radius:34px;text-align:center;background:#fff;color:#ff2878;box-shadow:0 20px 90px #ff287888;animation:pop .8s cubic-bezier(.2,1.5,.3,1)}
+.finalbox h2{font-size:43px;margin:0 0 12px}.finalbox p{color:#5b3044}
+@keyframes pop{from{transform:scale(.05) rotate(-8deg)}to{transform:scale(1) rotate(0)}}
+
+#boyFinal{
+  display:none;position:absolute;z-index:11;inset:0;align-items:center;justify-content:center;
+  padding:28px;background:rgba(12,3,18,.72);backdrop-filter:blur(7px)
+}
+#boyFinal.show{display:flex;animation:fade .55s ease}
+.boyCard{
+  width:min(88vw,390px);padding:18px;border-radius:30px;text-align:center;
+  background:rgba(255,255,255,.96);color:#ff2878;
+  box-shadow:0 20px 90px rgba(255,30,120,.55);animation:pop .8s cubic-bezier(.2,1.5,.3,1)
+}
+.boyCard img{width:170px;height:210px;object-fit:cover;border-radius:24px;display:block;margin:0 auto 15px;
+  box-shadow:0 8px 30px rgba(0,0,0,.25)}
+.boyCard h3{font-size:28px;margin:4px 0 8px}.boyCard p{font-size:17px;color:#5b3044;margin:0}
+
+</style>
+</head>
+<body>
+<div id="app">
+ <div id="bg" class="bg"></div><div class="shade"></div>
+ <div class="wrap"><div class="box">
+  <h1>သဲသဲရေ… 🥺❤️</h1>
+  <p>ကိုကိုက သဲသဲကို ချက်ချင်းစကားပြန်မပြောမိခဲ့တဲ့အတွက်<br>
+  တကယ်တောင်းပန်ပါတယ်နော်…<br><b>ခွင့်လွတ်ပေးပါနော် သဲသဲ ❤️</b></p>
+  <div class="btns">
+   <button id="no" class="no">ခွင့်မလွတ်နိုင်ဘူး 😤</button>
+   <button id="yes" class="yes">ခွင့်လွတ်တယ် ❤️</button>
+  </div>
+  <div class="note" id="note">မလွတ်သေးဘူးဆိုရင် အပေါ်ကကို ထပ်နှိပ်ပါ 😭</div>
+  <div class="count" id="count">0 / 10</div>
+ </div></div>
+ <div id="final"><div class="finalbox">
+   <h2>ခွင့်လွတ်တယ် ❤️</h2>
+   <p>ကိုကို့ကို စိတ်မဆိုးတော့ဘူးနော် 🥺💕<br><b>အရမ်းချစ်တယ် သဲသဲ Lynn ❤️</b></p>
+ </div></div>
+
+ <div id="boyFinal">
+  <div class="boyCard">
+   <img id="boyPhoto" alt="ကိုကို">
+   <h3>ကိုကို့ကို ခွင့်လွတ်တယ် ❤️</h3>
+   <p>ဒီတစ်ခါတော့ ချက်ချင်းစကားပြန်မပြောမိတာ<br>
+   ကိုကို့အပြစ်ပဲနော် 🥺<br><b>အရမ်းချစ်တယ် သဲသဲ Lynn ❤️</b></p>
+  </div>
+ </div>
+</div>
+<script>
+const photos = ["images/thethe1.jpg","images/thethe2.jpg","images/thethe3.jpg"];
+let n=0, photo=0;
+const bg=document.getElementById('bg'), no=document.getElementById('no'), yes=document.getElementById('yes');
+const count=document.getElementById('count'), note=document.getElementById('note'), final=document.getElementById('final');
+bg.style.backgroundImage=`url('${photos[0]}')`;
+
+function burst(amount){
+ for(let i=0;i<amount;i++){
+  const x=document.createElement('div');x.className='heart';
+  x.textContent=['❤️','💗','💕','✨','💖'][Math.floor(Math.random()*5)];
+  x.style.left=(Math.random()*96)+'%';x.style.top=(70+Math.random()*25)+'%';
+  x.style.fontSize=(15+Math.random()*30)+'px';x.style.animationDuration=(2.3+Math.random()*1.8)+'s';
+  document.getElementById('app').appendChild(x);setTimeout(()=>x.remove(),4300);
+ }
+}
+function changePhoto(){
+ photo=(photo+1)%photos.length;
+ bg.style.backgroundImage=`url('${photos[photo]}')`;
+}
+no.onclick=()=>{
+ n++; count.textContent=Math.min(n,10)+' / 10'; changePhoto(); burst(5+n);
+ const s=Math.min(1+n*.18,2.8);
+ yes.style.transform=`scale(${s})`;
+ yes.style.width=Math.min(58+n*4.2,92)+'%';
+ yes.style.fontSize=(18+n*1.8)+'px';
+ yes.style.boxShadow=`0 0 ${15+n*9}px rgba(255,30,110,.75)`;
+ note.textContent=n<10?'ဟင့်… ခွင့်မလွတ်နိုင်ဘူးတဲ့ 😭❤️':'ကဲ… ခွင့်လွတ်တယ်ကို နှိပ်ကြည့်တော့ 🥺❤️';
+ if(n>=10){
+   yes.style.position='fixed';yes.style.left='50%';yes.style.top='50%';
+   yes.style.width='100vw';yes.style.height='100vh';yes.style.borderRadius='0';
+   yes.style.transform='translate(-50%,-50%)';yes.style.fontSize='38px';
+   yes.textContent='ခွင့်လွတ်တယ် ❤️'; burst(35);
+ }
+};
+yes.onclick=()=>{
+ if(n<10){burst(4);return}
+ final.classList.add('show'); boyPhoto.src='images/ko-ko.jpg'; burst(45); setTimeout(()=>{final.classList.remove('show'); boyFinal.classList.add('show'); burst(55)},1600);
+};
+</script>
+</body>
+</html>
